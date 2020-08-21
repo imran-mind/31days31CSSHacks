@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .progress {
+            background-color: #d8d8d8;
+            border-radius: 20px;
+            height: 30px;
+            width: 300px;
+        }
+
+        .progress__done {
+            background: linear-gradient(to left, #F2709C, #FF9472);
+            height: 100%;
+            /* background-color: orange; */
+            border-radius: 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            width: 0;
+            opacity: 0;
+            box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+            transition: 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div class="progress__done" data-done=40>
+            <p>40%</p>
+        </div>
+    </div>
+
+    <script>
+        const progress = document.querySelector('.progress__done');
+
+        setTimeout(() => {
+            progress.style.width = progress.getAttribute('data-done') + '%';
+            progress.style.opacity = 1;
+            progress.style.paddingLeft = '10px'
+        }, 500)
+
+    </script>
+</body>
+
+
+</html>
