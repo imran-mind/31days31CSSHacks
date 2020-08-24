@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .background {
+            background-image: url('https://i.pinimg.com/originals/62/02/6d/62026d30664a8356d71f45e21f0e4209.jpg');
+            position: absolute;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background: url('https://i.pinimg.com/originals/62/02/6d/62026d30664a8356d71f45e21f0e4209.jpg') no-repeat center 50px; */
+            top: -20px;
+            right: -20px;
+            left: -20px;
+            bottom: -20px;
+            filter: blur(20px);
+            z-index: -1;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .heading {}
+
+        .text {
+            color: gray;
+        }
+
+        .password {
+            border: 1px solid lightgrey;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background" id="background">
+
+    </div>
+    <div class="container">
+        <h1 class="heading">Image Password Strength</h1>
+        <p class="text">Change the password to see the effect</p>
+        <input type="text" class='password' id="password" placeholder="Please enter password" />
+    </div>
+    <script>
+        const password = document.getElementById('password');
+        const background = document.getElementById('background');
+
+        password.addEventListener('input', (e) => {
+            const input = e.target.value;
+            const length = input.length;
+            const blurValue = 20 - length * 2;
+            background.style.filter = `blur(${blurValue}px)`
+        })
+    </script>
+</body>
+
+</html>
