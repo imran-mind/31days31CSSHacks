@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #8e44ad;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Muli', sans-serif;
+        }
+
+        .counter {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter" data-target="8000">
+
+    </div>
+    <span>
+        Twitter Followers
+    </span>
+
+    <div class="counter" data-target="4000">
+
+    </div>
+    <span>
+        Youtube Followers
+    </span>
+
+    <script>
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            counter.innerText = '0';
+
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target')
+                const c = +counter.innerText;
+
+                const increment = Math.random() * 100;//target / 100;
+
+                if (c < target) {
+                    counter.innerText = Math.ceil(c + increment);
+                    setTimeout(updateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            }
+
+            updateCounter();
+        })
+    </script>
+</body>
+
+</html>
