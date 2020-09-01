@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .checkbox {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .label {
+            font-size: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .label:before {
+            content: '';
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -30px;
+        }
+
+        .label:after {
+            content: '\2714';
+            border-radius: 5px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -25px;
+            color: #2ecc71;
+            transform: scale(0);
+            transition: transform 0.3s linear;
+        }
+
+        .checkbox:checked+.label::after {
+            transform: scale(1)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Custom Checkbox</h1>
+    <div class="container">
+        <input type="checkbox" id="checkbox" class="checkbox" />
+        <label for="checkbox" class="label">Checkbox</label>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
