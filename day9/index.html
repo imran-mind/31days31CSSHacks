@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let name = {
+            firstname: 'imran',
+            lastname: 'shaikh',
+        }
+
+        let printFullName = function (hometown, state) {
+            console.log(this.firstname + ' ' + this.lastname + ' From ' + hometown + ' ' + state);
+        }
+
+        let name1 = {
+            firstname: 'sachin',
+            lastname: 'tendulkar'
+        }
+
+        printFullName.call(name1, 'Burhanpur', 'MP');
+
+        printFullName.apply(name, ['Mumbai', 'MH']);
+
+        let printMyName = printFullName.bind(name, 'indore', 'MP');
+        printMyName();
+    </script>
+
+</body>
+
+</html>
