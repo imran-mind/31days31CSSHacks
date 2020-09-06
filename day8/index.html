@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const onResize = (name) => {
+            console.log('Resize ', name)
+        }
+
+        const throttle = (func, limit) => {
+            let flag = true;
+            return function () {
+                const context = this,
+                    args = arguments;
+                if (flag) {
+                    func.apply(context, args);
+                    flag = false;
+                    setTimeout(() => {
+                        flag = true;
+                    }, limit)
+                }
+            }
+        }
+
+        const makeBetter = throttle(onResize, 500);
+
+        window.addEventListener('resize', makeBetter);    
+    </script>
+</body>
+
+</html>
