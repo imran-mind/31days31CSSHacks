@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            min-height: 100px;
+            min-width: 100px;
+            border: 1px solid black;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grand-parent">
+        <div id="parent">
+            <div id="child">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#grand-parent')
+            .addEventListener('click', (e) => {
+                console.log('Grand-parent');
+                e.stopPropagation();
+            }, true);
+
+        document.querySelector('#parent')
+            .addEventListener('click', (e) => {
+                console.log('Parent');
+                // e.stopPropagation();
+            }, true);
+
+        document.querySelector('#child')
+            .addEventListener('click', (e) => {
+                console.log('Child');
+                // e.stopPropagation();
+            }, true);
+    </script>
+</body>
+
+</html>
