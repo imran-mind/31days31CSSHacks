@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // call,apply and bind
+
+        const person = {
+            firstname: 'imran',
+            lastname: 'shaikh'
+        }
+
+        function fullName(state, counter) {
+            console.log(this.firstname + " " + this.lastname + " from " + state + " " + counter);
+        }
+
+        // fullName.call(person, 'MP','India');
+        // fullName.apply(person, ['MP', 'India']);
+        // const func = fullName.bind(person, 'MP', 'India');
+        // console.log(func())
+
+        // can you write a polyfill for bind func
+        Function.prototype.myBind = function () {
+            const that = this;
+            const thisContext = arguments[0];
+            return function (...args) {
+                that.apply(thisContext, args);
+            }
+        }
+
+        const myBindFunc = fullName.myBind(person);
+        console.log(myBindFunc('MP', 'India'))
+    </script>
+</body>
+
+</html>
