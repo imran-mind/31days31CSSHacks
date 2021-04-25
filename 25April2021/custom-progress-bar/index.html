@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .bar-container {
+            width: 200px;
+            background-color: lightgray;
+            height: 30px;
+            margin: 20px;
+            border-radius: 20px;
+        }
+
+        .bar {
+            width: 0%;
+            height: 100%;
+            background-color: green;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="bar-container">
+        <div class="bar">
+
+        </div>
+    </div>
+    <button onclick="fillBarCssApproach(2)">Start</button>
+    <button onclick="resetBar()">Reset</button>
+
+    <script>
+        let widthPercent = 0;
+        function fillBar(seconds) {
+            const bar = document.querySelector('.bar');
+
+            const interval = setInterval(() => {
+                if (widthPercent <= 100) {
+                    bar.style.width = `${widthPercent}%`;
+                }
+                ++widthPercent;
+                if (widthPercent > 100) {
+                    clearInterval(interval);
+                }
+            }, 20)
+        }
+
+        const resetBar = () => {
+            console.log('reset bar');
+            widthPercent = 0;
+            document.querySelector('.bar').style.width = '0%'
+        }
+
+        const fillBarCssApproach = (seconds) => {
+            const bar = document.querySelector('.bar');
+            bar.style.transition = `${seconds}s linear width`;
+            bar.style.width = '100%';
+        }
+    </script>
+</body>
+
+</html>
