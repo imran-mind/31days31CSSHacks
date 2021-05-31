@@ -1,0 +1,20 @@
+
+:root{
+    --headingColor: white;
+    --bg-color: #42a5f5
+}
+div{
+    background: var(--bg-color);
+}
+
+h1{
+    color: var(--headingColor)
+}
+h2{
+    color: var(--headingColor)
+}
+h3{
+    --headingColor: brown;
+    color: var(--headingColor);
+    font-weight: bold;
+}
